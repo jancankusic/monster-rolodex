@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Search(props) {
+export default function Search({ handleChange, placeholder }) {
     return (
-        <input type='text' onChange={props.searchMonsters}/> 
+        <input type='search' placeholder={placeholder} onChange={handleChange}/> 
     )}

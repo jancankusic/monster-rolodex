@@ -21,22 +21,17 @@ export default class App extends Component {
     .then(loadData).then(loadRenderedMonsters);
   }
 
-searchMonsters = e => {
-  this.setState({ renderedMonsters: this.state.monsters.filter(monster => monster.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1)})
-    
-    
-    
-    // console.log(monster.name)
-    // console.log(e.target.value)
-    // console.log(monster.name.indexOf(e.target.value)) 
-    // return monster.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
-
+ searchMonsters = e => {
+  this.setState({ renderedMonsters: this.state.monsters.filter(monster => monster.name.toLowerCase().includes(e.target.value.toLowerCase()))})
 }
 
   render() {
     return(
       <div className='app'>
-        <Search searchMonsters={this.searchMonsters} />
+        <Search 
+          handleChange={this.searchMonsters} 
+          placeHolder='search monsters'
+        />
         <CardList monsters={this.state.renderedMonsters}></CardList>
       </div>
     )
