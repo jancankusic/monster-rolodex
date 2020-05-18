@@ -14,8 +14,8 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    const loadData = json => this.setState({ monsters: json}); 
     const loadRenderedMonsters = () => {this.setState({ renderedMonsters: this.state.monsters})};
+    const loadData = json => this.setState({ monsters: json}); 
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(loadData).then(loadRenderedMonsters);
