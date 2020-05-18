@@ -24,13 +24,18 @@ export default class App extends Component {
  searchMonsters = e => {
   this.setState({ renderedMonsters: this.state.monsters.filter(monster => monster.name.toLowerCase().includes(e.target.value.toLowerCase()))})
 }
+  thisFunction() {
+    console.log(this); 
+  }
 
   render() {
     return(
-      <div className='app'>
+      <div className='App'>
+        <h1>Monsters Roladex</h1>
+        <br></br>
         <Search 
           handleChange={this.searchMonsters} 
-          placeHolder='search monsters'
+          placeholder='search monsters'
         />
         <CardList monsters={this.state.renderedMonsters}></CardList>
       </div>
